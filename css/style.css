@@ -1,0 +1,880 @@
+
+
+/* =================================================================== */
+
+/* Top Level selectors CSS Styling*/
+/* BACKGROUND Applies to all sections */
+
+body {
+  background-color: #fbfbfbf1; /* Match your section background */
+}
+
+section {
+  background-color: #fbfbfbf1;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin-left: 100px;
+}
+
+/* Override specific sections that need different backgrounds */
+.section-image {
+  background: #151515 url(...) no-repeat center center;
+  /* Other properties */
+}
+
+#about {
+  position: relative;
+  background-color: #fbfbfbf1;
+  z-index: 0;
+}
+
+html {
+  overflow-x: hidden;
+}
+body {
+  font-family: "Andale Mono", sans-serif;
+}
+
+/* Styling for .lead and the tiles */
+body {
+  font-family: helvetica, arial, tahoma, verdana;
+  line-height: 20px;
+  font-size: 14px;
+  color: #726f77;
+}
+
+.lead {
+  font-family: helvetica, arial, tahoma, verdana;
+  line-height: 1.6;
+  font-size: 14px;
+  color: #726f77;
+}
+/* =================================================================== */
+/* 00. Styling general*/
+
+h1 {
+  font-weight: bold;
+}
+
+h5 {
+  font-weight: 800;
+  font-size: large;
+}
+
+a {
+  cursor: pointer;
+  color: #d1d600;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #d1d600;
+  opacity: 0.5;
+}
+
+a:visited {
+  color: #d1d600;
+  text-decoration: none !important;
+}
+
+a:active {
+  color: #d1d600;
+  text-decoration: none;
+}
+
+/* =================================================================== */
+/* 01. First Page */
+
+.intro {
+  vertical-align: middle;
+  text-align: left;
+  display: table-cell;
+  padding-left: 180px;
+  transform: none;
+}
+
+.intro-content {
+  max-width: 800px;
+  margin: 0;
+  text-align: left;
+}
+
+.intro-name {
+  color: #d1d600;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-transform: none;
+  letter-spacing: normal;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  font-family: "Andale Mono", monospace;
+  display: block;
+  padding-left: 4px;
+}
+
+/* Roles container and animation */
+.roles-container {
+  position: relative;
+  height: 10rem;
+  overflow: hidden; /* removing shows both rows */
+  margin-bottom: 1rem;
+}
+
+.roles-wrapper {
+  position: relative;
+  height: 100%;
+}
+
+.intro-role {
+  font-size: 5rem;
+  margin: 0;
+  padding: 0;
+  font-family: "Andale Mono", monospace;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.intro-role.active {
+  opacity: 1;
+}
+
+.role-mask {
+  position: absolute;
+  top: 0;
+  left: -5%;
+  width: 0%;
+  height: 100%;
+  background-color: #000;
+  z-index: 10;
+  transition: none;
+}
+
+/* Animation classes that will be added via JavaScript */
+.role-mask.animating {
+  width: 110%; /* Extra width to ensure full coverage */
+  transition: width 3s linear; /* slow transition */
+}
+
+.role-mask.reversing {
+  left: 0;
+  width: 0%;
+  transition: width 3s linear; /* slow transition */
+}
+
+.social {
+  margin: 2rem 0;
+  padding-top: 0;
+  text-align: left;
+  padding-left: 4px;
+}
+
+/* =================================================================== */
+/* Vertical Navigation bar  */
+
+.vertical-nav {
+  position: fixed;
+  top: 300px; /* Increased from 100px to create more space from social icons */
+  left: 40px; 
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  z-index: 999;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.vertical-nav li {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg); /* bar rotation */
+  text-align: center;
+}
+
+.vertical-nav a {
+  font-family: "Andale Mono", monospace; 
+  font-size: 16px;
+  color: #d1d600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.vertical-nav a:hover {
+  opacity: 0.8;
+  background-color: #000000;
+  transform: scale(1.05) rotate(0deg); /* hover effect */
+}
+
+/* social icons stacked vertically + space from nav */
+.social-icons-top {
+  position: fixed;
+  top: 20px;
+  left: 40px;
+  display: flex;
+  flex-direction: column; /*vertical stacking */
+  gap: 15px;
+  z-index: 1000;
+}
+.social-icons-top a {
+  color: #d1d600;
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+.social-icons-top a:hover {
+  transform: scale(1.2);
+}
+
+/* Shift all main sections to prevent overlap */
+section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin-left: 100px; /* Add margin to prevent overlap */
+}
+
+/* Ensure intro section has the same shift */
+.section-image {
+  margin-left: 0; /* Reset for full width background */
+}
+
+.intro {
+  padding-left: 200px; /* Add padding instead of margin for better appearance */
+}
+
+
+
+
+/* 02. FIRST PAGE STYLING
+ * =================================================================== */
+
+.section-image {
+  background: #151515
+    url(https://images.unsplash.com/photo-1517174637803-6929e01b6e63?auto=format&fit=crop&q=80&w=1888&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+    no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  text-align: center;
+  color: #fff6f6e8;
+  display: table;
+}
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #111111;
+  opacity: 0.7;
+}
+
+.intro {
+  vertical-align: middle;
+  text-align: center;
+  display: table-cell;
+  -webkit-transform: translateY(-2.1rem);
+  -ms-transform: translateY(-2.1rem);
+  transform: translateY(-2.1rem);
+}
+
+.intro .row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.intro h1 {
+  font-size: 84px;
+}
+
+.intro h5 {
+  color: #d1d600;
+  font-size: 4.3rem;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.section-image span {
+  text-transform: uppercase;
+  font-size: 1.4em;
+  padding: 0 10px;
+  font-weight: 100;
+}
+
+.section-image h1 {
+  margin-top: 0;
+}
+
+.section-image p {
+  font-weight: lighter;
+  opacity: 0.9;
+}
+
+/* 03. Social Icons
+ * =================================================================== */
+
+.social {
+  margin: 0 10px;
+  padding-top: 1.3em;
+  text-align: center;
+  color: #fff;
+  font-size: 0.9em;
+}
+
+.social a {
+  color: white;
+  text-decoration: none;
+  padding: 2em;
+}
+
+.social a:hover {
+  opacity: 0.6;
+}
+
+.social-footer {
+  position: block;
+  padding: 15px;
+}
+
+.social-footer a {
+  color: white;
+  text-decoration: none;
+  padding: 0.6em;
+  font-size: 1.7em;
+}
+
+/* 04. Icon Font
+ * =================================================================== */
+
+i:hover {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    color: #d1d600; /* Neon green */
+  }
+  50% {
+    color: #47374c; /* Lime */
+  }
+  100% {
+    color: #d1d600; /* Neon green */
+  }
+}
+
+/* 05. Section Styles
+ * =================================================================== */
+
+section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.profilepic {
+  height: 150px;
+  width: auto;
+  border-radius: 300px;
+}
+
+#about .profilepic {
+  margin-bottom: 30px; /* Add space below the profile image */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section-primary p {
+  text-align: justify;
+}
+
+.section-primary {
+  border: #d1d600;
+}
+
+.section-colour {
+  background-color: #d1d600;
+  color: #fff;
+}
+
+.section-colour p {
+  text-align: justify;
+}
+
+.section-colour {
+  border: #fff;
+}
+
+.section-colour hr {
+  border-top: 5px solid #fff;
+}
+
+/* Consistent section title styling with pseudo-elements */
+
+.section-title {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.section-title h2,
+.section-heading h2,
+#about h2,
+#publications h2,
+#materiality-section h2 {
+  font-family: "Andale Mono", sans-serif;
+  color: #333;
+  font-size: 3.5rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.section-title h2::after,
+.section-heading h2::after,
+#about h2::after,
+#publications h2::after,
+#materiality-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%); /* Centers the line perfectly */
+  width: 100px;
+  height: 4px;
+  background-color: #d1d600;
+}
+
+
+
+/* 06. ABOUT ME Section */
+/* =================================================================== */
+
+/* adding the background picture */
+#about {
+  position: relative; /* Important for positioning the pseudo-element */
+  background-image: none; /* Remove the background from the main element */
+  z-index: 0;
+}
+
+
+#about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: center;
+  opacity: 0.5; /* Only the background image becomes transparent */
+  z-index: -1; /* Places it behind the content */
+}
+
+#about .container {
+  position: relative;
+  z-index: 1; /* Ensures content stays above the transparent background */
+}
+
+/*change the link colour of Bonn Sustainable AI Lab*/
+#about .lead a {
+  color: #555050; /* Change to your preferred color */
+  text-decoration: none; /* Optional: removes underline */
+}
+
+#about .lead a:hover {
+  color: #292c29; /* Slightly darker shade for hover */
+  text-decoration: underline; /* Optional: adds underline on hover */
+}
+
+/* 07. RESEARCH TILE SECTION
+ * =================================================================== */
+
+/* Publications Section Styling */
+#publications {
+  background-color: #fbfbfbf1; /* other sections use this (just white) as backhgrund colour #fff */
+  padding: 80px 0;
+}
+
+.publications-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.publication-tile {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.publication-tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.publication-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #dedededb; /* Solid green color instead of gradient */
+}
+
+.publication-tile h3 {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.publication-journal {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.publication-desc {
+  color: #555;
+  font-size: 15px;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+/* Link styling */
+.publication-link {
+  color: #000000 !important;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  padding: 8px 0;
+  margin-top: auto;
+  transition: color 0.2s ease;
+  border: none;
+  background-color: transparent;
+}
+
+.publication-link:hover {
+  color: #c76e00;
+}
+
+/* Image tile styling */
+.image-tile {
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 100%; /* Makes it square */
+}
+
+.tile-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/* 07. Footer
+ * =================================================================== */
+
+footer {
+  display: block;
+  position: static;
+  bottom: 0;
+  background-color: black;
+  color: #fff;
+  padding: 0.2px 0;
+  text-align: center; /* Centers all content in footer */
+  width: 100%; /* Ensures footer spans full width */
+}
+
+footer p {
+  padding: 15px;
+  opacity: 0.8;
+  margin: 0 auto; /* Centers the paragraph */
+}
+
+/* Create line break effect */
+footer p a {
+  display: block; /* Forces "Sophia Falk" to appear on a new line */
+  margin-top: 5px; /* Adds space between the two lines */
+}
+
+footer .container {
+  display: flex;
+  justify-content: center; /* Centers flex items horizontally */
+  align-items: center; /* Centers flex items vertically */
+}
+
+footer .col-md-4 {
+  width: 100%;
+  text-align: center;
+}
+
+
+/* 08 MEDIA QUERIES
+/* **** MOBILE PHONE ADJUSTMENTS 
+ * =================================================================== */
+
+@media (max-width: 480px) {
+  .social a {
+    padding: 0.4em;
+    font-size: 0.9em;
+  }
+
+  .social-footer {
+    text-align: center;
+    position: block;
+    text-align: center;
+  }
+
+  .social-footer a {
+    padding: 0.3em;
+    font-size: 1.6em;
+  }
+
+  .intro-desc {
+    font-size: 0.7em;
+  }
+
+  .section-image span {
+    font-size: 1em;
+    padding: 0 1px;
+  }
+
+  .intro h1 {
+    font-size: 50px;
+    padding-top: 15px;
+  }
+
+  footer {
+    text-align: center;
+    padding-bottom: 100px;
+  }
+
+  #research {
+    background: #151515
+      url(https://images.unsplash.com/photo-1562408590-e32931084e23?auto=format&fit=crop&q=80&w=1770&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+      no-repeat center center;
+    background-position: top center;
+  }
+}
+
+@media (max-width: 991px) {
+  .social-footer {
+    text-align: center;
+  }
+
+  footer p {
+    text-align: center;
+  }
+}
+
+
+/* Roles container and animation */
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .roles-container {
+    height: 10rem; /* Increased for medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .roles-container {
+    height: 6rem; /* Increased for small screens */
+  }
+}
+
+/* VERTICAL Navigation bar*/
+/* Media Queries for Responsive Navigation */
+@media (max-width: 768px) {
+  .vertical-nav {
+    display: none; /* Hide vertical nav on mobile */
+  }
+  
+  .mobile-menu-toggle {
+    display: block; /* Show hamburger menu on mobile */
+  }
+  
+  section {
+    margin-left: 0; /* Remove left margin on mobile */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .intro {
+    padding-left: 20px; /* Adjust intro padding for mobile */
+  }
+  
+  .social-icons-top {
+    flex-direction: row; /* Display social icons horizontally on mobile */
+    gap: 20px;
+    top: 20px;
+    left: 20px;
+  }
+}
+
+/* Navigation Bar MOBILE PHONES
+/* Update this part of your CSS for responsive navigation */
+
+/* Mobile Navigation Styles */
+/* Mobile menu toggle - only appears on mobile */
+.mobile-menu-toggle {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+  cursor: pointer;
+  background-color: #151515;
+  padding: 10px 12px;
+  border-radius: 4px;
+}
+
+.hamburger-icon {
+  color: #d1d600;
+  font-size: 24px;
+}
+
+/* Mobile dropdown menu - hidden by default */
+.mobile-dropdown {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  background-color: rgba(21, 21, 21, 0.95);
+  z-index: 1000;
+  padding: 70px 0 20px 0;
+}
+
+.mobile-dropdown.active {
+  display: block;
+}
+
+.mobile-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.mobile-dropdown li {
+  padding: 15px 0;
+}
+
+.mobile-dropdown a {
+  font-family: "Andale Mono", monospace;
+  color: #d1d600;
+  font-size: 18px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.mobile-dropdown a:hover {
+  opacity: 0.8;
+}
+
+/* Media Queries for Responsive Navigation */
+@media (max-width: 768px) {
+  .vertical-nav {
+    display: none; /* Hide vertical nav on mobile */
+  }
+  
+  .mobile-menu-toggle {
+    display: block; /* Show hamburger menu on mobile */
+  }
+  
+  section {
+    margin-left: 0; /* Remove left margin on mobile */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .intro {
+    padding-left: 20px; /* Adjust intro padding for mobile */
+  }
+  
+  .social-icons-top {
+    flex-direction: row; /* Display social icons horizontally on mobile */
+    gap: 20px;
+    top: 20px;
+    left: 20px;
+  }
+}
+
+
+/* Consistent section title styling with pseudo-elements */
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section-title h2,
+  .section-heading h2,
+  #about h2,
+  #publications h2,
+  #materiality-section h2 {
+    font-size: 2rem;
+    padding-bottom: 15px;
+  }
+  
+  .section-title h2::after,
+  .section-heading h2::after,
+  #about h2::after,
+  #publications h2::after,
+  #materiality-section h2::after {
+    width: 60px;
+    height: 4px;
+  }
+}
+/* Center heading and divider line for centered sections */
+.text-center h2 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-center h2::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+/* Research tile styling */
+/* Responsive adjustments */
+@media screen and (max-width: 480px) {
+  .publications-grid {
+    grid-template-columns: 1fr; /* Single column on small screens */
+    gap: 15px;
+  }
+
+  .image-tile {
+    display: none; /* Hide image tiles on small screens */
+  }
+}
+
+/* For medium screens, you might want a 2-column layout */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .publications-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
